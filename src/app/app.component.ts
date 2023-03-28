@@ -1,4 +1,7 @@
 import { Component } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
+import { UserResponse } from './UserResponse';
+
 
 @Component({
   selector: 'app-root',
@@ -7,4 +10,15 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'apicallproject';
+  results='';
+  constructor(private http: HttpClient)
+  {
+    const req=this.http.post('https://jsonplaceholder.typicode.com/posts',
+    {
+      title:'foo',
+      body:'bar',
+      userId:1  
+    }).subscribe(    res=>{console.log(res)} , err=>{console.log("error occured")}   );
+    
+  }
 }
