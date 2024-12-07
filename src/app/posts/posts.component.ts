@@ -14,4 +14,8 @@ export class PostsComponent {
   {
     this.response=this.service.getPosts();
   }
+
+  add(){
+    console.log("heloo shehkar ")
+  }
 }
